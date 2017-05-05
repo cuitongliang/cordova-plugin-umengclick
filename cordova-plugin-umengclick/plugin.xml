@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	id="cordova-plugin-umengclick" 
+	version="1.0.0">
+  <name>UMengClick</name>
+  <js-module name="umengclick" src="www/umengclick.js">
+    <clobbers target="umengclick"/>
+  </js-module>
+  
+  <!-- android -->
+  <platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="UMengClick">
+        <param name="android-package" value="org.apache.cordova.umengclick.UMengClick"/>
+      </feature>
+    </config-file>
+    <source-file src="src/android/UMengClick.java" target-dir="src/org/apache/cordova/umengclick"/>
+  </platform>
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="UMengClick">
+        <param name="ios-package" value="CDVUMengClick"/>
+      </feature>
+    </config-file>
+    <source-file src="src/ios/CDVUMengClick.m"/>
+    <source-file src="src/ios/CDVUMengClick.h"/>
+  </platform>
+</plugin>
